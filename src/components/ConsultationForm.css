@@ -1,0 +1,261 @@
+/* CSS for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 20px 0;
+  padding: 1% 0%;
+  background-color: #F4F4F4;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  color: #2c3e50; /* Установить цвет текста по умолчанию для всех вложенных элементов */
+}
+
+.info-block, .form-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 10px;
+  background-color: transparent;
+}
+
+.info-block {
+  justify-content: flex-start;
+}
+
+.info-text {
+  width: 100%;
+  text-align: center;
+}
+
+.info-text h1 {
+  font-size: 2.2rem;
+  color: inherit; /* Наследовать цвет от контейнера */
+  margin-bottom: 10px;
+}
+
+.info-block img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: contain;
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.form-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+form {
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  transition: opacity 0.5s;
+  color: inherit; /* Наследовать цвет от контейнера */
+}
+
+form.hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+form label {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: inherit; /* Наследовать цвет от контейнера */
+  margin-bottom: 5px; /* Уменьшено расстояние до инпута */
+}
+
+form input {
+  padding: 10px;
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  width: 100%; /* Ширина 100% родительского контейнера */
+  transition: border-color 0.3s ease;
+  color: inherit; /* Наследовать цвет от контейнера */
+}
+
+form button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #41930b;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 90%;
+  margin-top: auto;
+  margin-bottom: 0px;
+}
+
+form button:hover {
+  background-color: #57d100;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.04);
+}
+
+.thank-you-slide {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #dee2e6;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 20px auto;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  color: inherit; /* Наследовать цвет от контейнера */
+}
+
+.thank-you-slide.visible {
+  display: block;
+}
+
+.thank-you-slide h2 {
+  font-size: 2.2rem;
+  color: inherit; /* Наследовать цвет от контейнера */
+  margin-bottom: 20px;
+}
+
+.thank-you-slide p {
+  font-size: 1.6rem;
+  color: inherit; /* Наследовать цвет от контейнера */
+  margin-bottom: 10px;
+}
+
+.consent-text {
+  font-size: 1rem;
+  color: inherit; /* Наследовать цвет от контейнера */
+  margin-bottom: 10px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1024px) {
+  .form-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .info-block, .form-wrapper {
+    margin: 10px 0;
+  }
+
+  .info-text h1 {
+    font-size: 1.8rem;
+  }
+
+  form label {
+    font-size: 1.4rem;
+  }
+
+  form input {
+    font-size: 1.4rem;
+  }
+
+  form button {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  .info-text h1 {
+    font-size: 1.6rem;
+  }
+
+  form label {
+    font-size: 1.2rem;
+  }
+
+  form input {
+    font-size: 1.2rem;
+  }
+
+  form button {
+    font-size: 1.2rem;
+  }
+
+  .thank-you-slide h2 {
+    font-size: 1.8rem;
+  }
+
+  .thank-you-slide p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 10px;
+  }
+
+  .info-text h1 {
+    font-size: 1.4rem;
+  }
+
+  form label {
+    font-size: 1rem;
+  }
+
+  form input {
+    font-size: 1rem;
+  }
+
+  form button {
+    font-size: 1rem;
+  }
+
+  .thank-you-slide h2 {
+    font-size: 1.6rem;
+  }
+
+  .thank-you-slide p {
+    font-size: 1rem;
+  }
+}

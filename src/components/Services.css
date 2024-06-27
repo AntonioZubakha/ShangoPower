@@ -1,0 +1,62 @@
+.Services {
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 20;
+  border-bottom: 2px solid #ddd;
+  font-size: 46px;
+  padding: 2% 0%;
+  background-color: #f4f4f4;
+}
+
+.Services h2 {
+  margin: 0;
+  font-size: 46px !important;
+  margin-bottom: 40px;
+  background: #2c3e50;
+  color: white;
+  padding: 10px;
+}
+
+.rectangles {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Adjusted for better spacing */
+  flex-wrap: wrap;
+}
+
+.rectangle {
+  width: calc(80% / 3 - 60px); /* Adjust width for three columns with gap */
+  max-width: 380px; /* Maximum width for larger screens */
+  height: 200px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 400;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  margin-bottom: 30px; /* Space between rectangles */
+}
+
+.rectangle:hover {
+  transform: scale(1.05);
+  background-color: #2c3e50;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .rectangle {
+    width: calc(80% / 2 - 40px); /* Two columns with gap */
+  }
+}
+
+@media (max-width: 768px) {
+  .rectangle {
+    width: calc(80% - 40px); /* Full width with gap */
+  }
+}

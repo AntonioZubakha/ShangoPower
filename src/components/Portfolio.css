@@ -1,0 +1,176 @@
+.portfolio {
+  padding: 2% 0%;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 2px solid #ddd;
+  border-top: 2px solid #ddd;
+}
+
+.portfolio h2 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-size: 46px !important; /* Ensure this font-size takes precedence */
+  margin-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
+  background: #2c3e50;
+  font-size: 3rem;
+  color: white;
+  padding: 10px;
+}
+
+.portfolio-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.portfolio-slide {
+  width: 100%;
+  text-align: center;
+  position: relative; /* Position relative for absolute positioning of text block */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.portfolio-slide img {
+  height: 80vh; /* Increased height to 80% of viewport height */
+  width: 100%; /* Set width to 100% of the parent */
+  object-fit: cover; /* Maintain aspect ratio and cover the area */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-slide .text-block {
+  position: absolute;
+  bottom: 0; /* Position at the bottom */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+  padding: 20px; /* Padding for better readability */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  text-align: left; /* Align text to the left */
+}
+
+.portfolio-slide .text-block p {
+  margin: 5px 0; /* Add some margin between lines */
+  font-size: 36px;
+  font-weight: bolder;
+  font-family: 'Open Sans', sans-serif;
+  color: #2c3e50;
+}
+
+.portfolio-prev, .portfolio-next {
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  position: absolute;
+  top: 50%; /* Align vertically within the image container */
+  transform: translateY(-50%); /* Center vertically */
+  transition: transform 0.3s; /* Only scale on hover, no position change */
+}
+
+.portfolio-prev img, .portfolio-next img {
+  width: 64px; /* Double the size */
+  height: 64px; /* Double the size */
+}
+
+.portfolio-prev:hover, .portfolio-next:hover {
+  transform: scale(1.1) translateY(-50%);
+}
+
+.portfolio-prev {
+  left: 10px;
+}
+
+.portfolio-next {
+  right: 10px;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .portfolio h2 {
+    font-size: 40px;
+  }
+
+  .portfolio-slide .text-block p {
+    font-size: 32px;
+  }
+
+  .portfolio-prev img, .portfolio-next img {
+    width: 48px; /* Smaller size for smaller screens */
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio h2 {
+    font-size: 32px;
+    padding: 8px;
+  }
+
+  .portfolio-slide img {
+    height: 60vh; /* Reduce height for smaller screens */
+  }
+
+  .portfolio-slide .text-block p {
+    font-size: 28px;
+  }
+
+  .portfolio-prev img, .portfolio-next img {
+    width: 32px; /* Smaller size for smaller screens */
+    height: 32px;
+  }
+
+  .portfolio-prev, .portfolio-next {
+    padding: 10px;
+  }
+
+  .portfolio-slide .text-block {
+    position: static; /* Position static for mobile view */
+    background-color: transparent; /* Remove background color for mobile view */
+    padding: 10px 0; /* Adjust padding */
+    margin-top: 10px; /* Add margin-top to separate from image */
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio h2 {
+    font-size: 24px;
+    padding: 6px;
+  }
+
+  .portfolio-slide img {
+    height: 40vh; /* Further reduce height for smaller screens */
+  }
+
+  .portfolio-slide .text-block p {
+    font-size: 24px;
+  }
+
+  .portfolio-prev img, .portfolio-next img {
+    width: 24px; /* Smaller size for smaller screens */
+    height: 24px;
+  }
+
+  .portfolio-prev, .portfolio-next {
+    padding: 5px;
+  }
+
+  .portfolio-slide .text-block {
+    position: static; /* Position static for mobile view */
+    background-color: transparent; /* Remove background color for mobile view */
+    padding: 10px 0; /* Adjust padding */
+    margin-top: 10px; /* Add margin-top to separate from image */
+  }
+}

@@ -1,0 +1,254 @@
+.solar-feature {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #f4f4f4;
+  margin-bottom: 20px;
+  padding: 2% 0%;
+}
+
+.solar-feature-reverse {
+  flex-direction: row-reverse;
+}
+
+.solar-feature-content {
+  flex: 1;
+  padding: 0 8%;
+  font-size: 36px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 38%;
+  max-width: 38%;
+  color: #2c3e50;
+}
+
+.solar-feature-content p {
+  margin-bottom: 10px;
+}
+
+.solar-feature-title {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-size: 46px;
+  margin-bottom: 0px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px 20px;
+  border-radius: 10px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.solar-download-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+
+.solar-download-btn button {
+  font-size: 16px;
+  background: #41930b;
+  color: white;
+  border: none;
+  padding: 15px 80px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.solar-download-btn button:hover {
+  background-color: #57d100;
+  transform: scale(1.04);
+}
+
+.solar-slider {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+  max-width: 60%;
+  height: 90vh;
+}
+
+.solar-slides {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  height: 100%;
+}
+
+.solar-slide {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.solar-slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.solar-slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(44, 62, 80, 0.9);
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 26px;
+}
+
+.solar-slide-overlay h3 {
+  font-size: 36px;
+}
+
+.solar-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.solar-prev, .solar-next {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.solar-prev img, .solar-next img {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-button-background {
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .solar-feature-content {
+    font-size: 30px;
+  }
+
+  .solar-feature-title {
+    font-size: 38px;
+  }
+
+  .solar-slide-overlay {
+    font-size: 22px;
+  }
+
+  .solar-slide-overlay h3 {
+    font-size: 32px;
+  }
+
+  .solar-download-btn button {
+    font-size: 14px;
+    padding: 10px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .solar-feature {
+    flex-direction: column;
+  }
+
+  .solar-feature-content, .solar-slider {
+    width: 92%;
+    margin: 0 4%;
+  }
+
+  .solar-slider {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+  }
+
+  .solar-feature-content {
+    max-width: 100%;
+    font-size: 24px;
+  }
+
+  .solar-feature-title {
+    font-size: 32px;
+  }
+
+  .solar-slide-overlay {
+    font-size: 20px;
+  }
+
+  .solar-slide-overlay h3 {
+    font-size: 28px;
+  }
+
+  .solar-download-btn button {
+    font-size: 12px;
+    padding: 8px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .solar-feature {
+    flex-direction: column !important;
+  }
+
+  .solar-slider {
+    max-width: 100%;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .solar-slide-media {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  .solar-slide-overlay {
+    position: relative !important;
+    background: rgba(44, 62, 80, 0.9) !important;
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    margin-top: 10px !important; /* Добавим отступ сверху */
+  }
+
+  .solar-feature-content {
+    font-size: 20px !important;
+    padding: 0 5% !important;
+  }
+
+  .solar-feature-title {
+    font-size: 28px !important;
+  }
+
+  .solar-slide-overlay {
+    font-size: 18px !important;
+  }
+
+  .solar-slide-overlay h3 {
+    font-size: 24px !important;
+  }
+
+  .solar-download-btn button {
+    font-size: 10px !important;
+    padding: 6px 40px !important;
+  }
+}

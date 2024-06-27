@@ -1,0 +1,256 @@
+.CHP-feature {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 2% 0%;
+  border-bottom: 2px solid #ddd;
+  border-top: 2px solid #ddd;
+}
+
+.CHP-feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.CHP-feature-content {
+  flex: 1;
+  padding: 0 8%;
+  font-size: 36px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 38%;
+  max-width: 38%;
+  color: #2c3e50;
+}
+
+.CHP-feature-content p {
+  margin-bottom: 10px;
+}
+
+.CHP-feature-title {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-size: 46px;
+  margin-bottom: 0px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px 20px;
+  border-radius: 10px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.CHP-download-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+
+.CHP-download-btn button {
+  font-size: 16px;
+  background: #41930b;
+  color: white;
+  border: none;
+  padding: 15px 80px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.CHP-download-btn button:hover {
+  background-color: #57d100;
+  transform: scale(1.04);
+}
+
+.CHP-slider {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  width: 60%;
+  max-width: 60%;
+  height: 90vh;
+}
+
+.CHP-slides {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  height: 100%;
+}
+
+.CHP-slide {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.CHP-slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.CHP-slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(44, 62, 80, 0.9);
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 26px;
+}
+
+.CHP-slide-overlay h3 {
+  font-size: 36px;
+}
+
+.CHP-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.CHP-prev, .CHP-next {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.CHP-prev img, .CHP-next img {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-button-background {
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .CHP-feature-content {
+    font-size: 30px;
+  }
+
+  .CHP-feature-title {
+    font-size: 38px;
+  }
+
+  .CHP-slide-overlay {
+    font-size: 22px;
+  }
+
+  .CHP-slide-overlay h3 {
+    font-size: 32px;
+  }
+
+  .CHP-download-btn button {
+    font-size: 14px;
+    padding: 10px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .CHP-feature {
+    flex-direction: column;
+  }
+
+  .CHP-feature-content, .CHP-slider {
+    width: 92%;
+    margin: 0 4%;
+  }
+
+  .CHP-slider {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+  }
+
+  .CHP-feature-content {
+    max-width: 100%;
+    font-size: 24px;
+  }
+
+  .CHP-feature-title {
+    font-size: 32px;
+  }
+
+  .CHP-slide-overlay {
+    font-size: 20px;
+    position: static;
+    background: rgba(44, 62, 80, 0.9);
+    margin-top: 10px;
+  }
+
+  .CHP-slide-overlay h3 {
+    font-size: 28px;
+  }
+
+  .CHP-download-btn button {
+    font-size: 12px;
+    padding: 8px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .CHP-feature {
+    flex-direction: column;
+  }
+
+  .CHP-slider {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .CHP-slide-media {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .CHP-slide-overlay {
+    position: static;
+    background: rgba(44, 62, 80, 0.9);
+    margin-top: 10px;
+  }
+
+  .CHP-feature-content {
+    font-size: 20px;
+    padding: 0 5%;
+  }
+
+  .CHP-feature-title {
+    font-size: 28px;
+  }
+
+  .CHP-slide-overlay {
+    font-size: 16px;
+  }
+
+  .CHP-slide-overlay h3 {
+    font-size: 24px;
+  }
+
+  .CHP-download-btn button {
+    font-size: 10px;
+    padding: 6px 40px;
+  }
+}
