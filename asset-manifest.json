@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ShangoPower/static/css/main.a24ca3fd.css",
+    "main.css": "/ShangoPower/static/css/main.8fe956f0.css",
     "main.js": "/ShangoPower/static/js/main.083e5a8e.js",
     "index.html": "/ShangoPower/index.html",
-    "main.a24ca3fd.css.map": "/ShangoPower/static/css/main.a24ca3fd.css.map",
+    "main.8fe956f0.css.map": "/ShangoPower/static/css/main.8fe956f0.css.map",
     "main.083e5a8e.js.map": "/ShangoPower/static/js/main.083e5a8e.js.map"
   },
   "entrypoints": [
-    "static/css/main.a24ca3fd.css",
+    "static/css/main.8fe956f0.css",
     "static/js/main.083e5a8e.js"
   ]
 }
