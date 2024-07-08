@@ -11,10 +11,9 @@ const AboutUs = () => {
         <video src={video} autoPlay loop muted className="aboutus-slide-media" />
         <div className="aboutus-content">
           <h1 className="aboutus-title">About us</h1>
-          <p>Shango Power is a consulting agency specializing in renewable energy and energy sustainability.</p>
-          <p>Our mission is to help clients become more environmentally friendly while reducing energy costs.</p>
-          <p>Our specialists have many years of experience and wide technical expertise in different fields.</p>
-          <p>We create added value in energy sustainability for your facility, regardless of task complexity or location.</p>
+          <p>Shango Power is your consulting partner for renewable energy and sustainability solutions.</p>
+          <p>We create added value in energy sustainability of your facility, no matter the task complexity or location.</p>
+          <p>Our mission is to help our customers to become more environmentally friendly while reducing energy costs.</p>
         </div>
       </div>
     </section>

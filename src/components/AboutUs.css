@@ -23,28 +23,61 @@
   right: 0; /* Обеспечение, что контент не выходит за правую границу */
   bottom: 0; /* Прилепить подложку к нижней границе слайдера */
   background: rgba(44, 62, 80, 0.9); /* Полупрозрачный фон */
-  padding: 25px 80px; /* Настройка отступов */
+  padding: 2rem 10% 2rem 10%; /* Настройка отступов */
   color: white;
-  font-size: 36px; /* Размер шрифта для абзацев */
+  font-size: 2rem; /* Размер шрифта для абзацев */
   line-height: 1.4; /* Межстрочный интервал для лучшей читаемости */
   text-align: justify; /* Выровнять текст по ширине */
 }
 
 .aboutus-title {
-  margin: 0 0 10px; /* Объединение свойств margin */
-  font-size: 46px; /* Размер шрифта заголовка */
+  font-size: 2.5rem; /* Размер шрифта заголовка */
   color: white;
 }
 
 /* Адаптивность */
-@media (max-width: 1324px) {
+@media (max-width: 1624px) {
   .aboutus-content {
-    padding: 20px 40px; /* Настройка отступов для планшетов */
-    font-size: 22px; /* Меньший размер шрифта для планшетов */
+    padding: 2rem 10% 2rem 10%; /* Настройка отступов для ноутбуков и планшетов */
+    font-size: 1.6rem; /* Меньший размер шрифта для ноутбуков и планшетов */
   }
 
   .aboutus-title {
-    font-size: 26px; /* Меньший размер заголовка для планшетов */
+    font-size: 2.2rem; /* Меньший размер заголовка для ноутбуков и планшетов */
+  }
+
+  .aboutus-content p {
+    font-size: 1.6rem; /* Размер шрифта абзацев */
+  }
+}
+
+@media (max-width: 1324px) {
+  .aboutus-content {
+    padding: 2rem 10% 2rem 10%; /* Настройка отступов для планшетов */
+    font-size: 1.4rem; /* Меньший размер шрифта для ноутбуков и планшетов */
+  }
+
+  .aboutus-title {
+    font-size: 2rem; /* Меньший размер заголовка для ноутбуков и планшетов */
+  }
+
+  .aboutus-content p {
+    font-size: 1.4rem; /* Размер шрифта абзацев */
+  }
+}
+
+@media (max-width: 1024px) {
+  .aboutus-content {
+    padding: 2rem 10% 2rem 10%; /* Дополнительная настройка отступов для ноутбуков */
+    font-size: 1rem; /* Меньший размер шрифта для ноутбуков */
+  }
+
+  .aboutus-title {
+    font-size: 1.4rem; /* Меньший размер заголовка для ноутбуков */
+  }
+  
+  .aboutus-content p {
+    font-size: 1rem; /* Размер шрифта абзацев */
   }
 }
 
@@ -53,31 +86,35 @@
     bottom: 0;
     left: 0;
     right: 0;
-    width: 95%; /* Обеспечение полной ширины */
-    padding: 10px 15px; /* Настройка отступов для мобильных устройств */
-    font-size: 18px; /* Меньший размер шрифта */
+    padding: 1rem 1.5vw; /* Настройка отступов для мобильных устройств */
+    font-size: 0.8rem; /* Меньший размер шрифта */
   }
 
   .aboutus-title {
-    font-size: 28px; /* Меньший размер заголовка */
+    font-size: 1rem; /* Меньший размер заголовка */
   }
 
   .aboutus-content p {
-    font-size: 16px; /* Размер шрифта абзацев */
+    font-size: 0.8rem; /* Размер шрифта абзацев */
   }
 }
 
 @media (max-width: 480px) {
+  .aboutus {
+    max-width: 100% !important;
+    height: 80vh; /* 90% от высоты окна просмотра */
+  }
   .aboutus-content {
-    padding: 5px 10px; /* Настройка отступов для очень маленьких экранов */
-    font-size: 16px; /* Меньший размер шрифта */
+    font-size: 0.8rem; /* Меньший размер шрифта */
+    padding: 1rem;
+    right: 0; /* Ensure content doesn't exceed the right edge */
   }
 
   .aboutus-title {
-    font-size: 24px; /* Меньший размер заголовка */
+    font-size: 1rem; /* Меньший размер заголовка */
   }
 
   .aboutus-content p {
-    font-size: 14px; /* Размер шрифта абзацев */
+    font-size: 0.8rem; /* Размер шрифта абзацев */
   }
 }

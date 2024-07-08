@@ -1,20 +1,18 @@
 .Services {
-  padding: 20px 0;
+  padding: 20px 10%; /* Добавлены отступы 10% по краям */
   text-align: center;
-  margin-bottom: 20;
-  border-bottom: 2px solid #ddd;
-  font-size: 46px;
-  padding: 2% 0%;
+  margin-bottom: 50px;
   background-color: #f4f4f4;
 }
 
 .Services h2 {
-  margin: 0;
   font-size: 46px !important;
-  margin-bottom: 40px;
+  margin: 50px auto 50px auto; /* Центрирование заголовка и добавление отступов */
   background: #2c3e50;
   color: white;
-  padding: 10px;
+  padding: 20px 150px;
+  width: fit-content; /* Ширина по содержимому */
+  border-radius: 10px;
 }
 
 .rectangles {
@@ -25,8 +23,8 @@
 }
 
 .rectangle {
-  width: calc(80% / 3 - 60px); /* Adjust width for three columns with gap */
-  max-width: 380px; /* Maximum width for larger screens */
+  width: calc(22.5% - 32px); /* Adjust width for four columns with gap */
+  max-width: 400px; /* Maximum width for larger screens */
   height: 200px;
   background-color: white;
   border-radius: 15px;
@@ -41,6 +39,7 @@
   color: #333;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   margin-bottom: 30px; /* Space between rectangles */
+  cursor: pointer;
 }
 
 .rectangle:hover {
@@ -49,14 +48,82 @@
   color: white;
 }
 
-@media (max-width: 1024px) {
+/* Адаптивность */
+@media (max-width: 1824px) {
+  .Services {
+    font-size: 34px; /* Меньший размер шрифта */
+    padding: 20px 5%; /* Регулировка отступов для средней ширины экрана */
+  }
+  .Services h2 {
+    font-size: 34px !important; /* Меньший размер заголовка */
+  }
   .rectangle {
-    width: calc(80% / 2 - 40px); /* Two columns with gap */
+    max-width: 550px;
+    font-size: 24px; /* Меньший размер шрифта прямоугольника */
+    width: calc(50% - 30px); /* Two columns with gap */
+  }
+}
+
+@media (max-width: 1324px) {
+  .Services {
+    font-size: 32px; /* Меньший размер шрифта */
+    padding: 20px 5%; /* Регулировка отступов для средней ширины экрана */
+  }
+  .Services h2 {
+    font-size: 32px !important; /* Меньший размер заголовка */
+  }
+  .rectangle {
+    font-size: 22px; /* Меньший размер шрифта прямоугольника */
+    width: calc(50% - 30px); /* Two columns with gap */
+  }
+}
+
+@media (max-width: 1024px) {
+  .Services {
+    font-size: 26px; /* Меньший размер шрифта */
+    padding: 20px 5%; /* Регулировка отступов для средней ширины экрана */
+  }
+  .Services h2 {
+    font-size: 26px !important; /* Меньший размер заголовка */
+  }
+  .rectangle {
+    font-size: 20px; /* Меньший размер шрифта прямоугольника */
+    width: calc(50% - 30px); /* Two columns with gap */
   }
 }
 
 @media (max-width: 768px) {
+  .Services {
+    font-size: 24px; /* Меньший размер шрифта */
+    padding: 20px 5%; /* Регулировка отступов для средней ширины экрана */
+  }
+  .Services h2 {
+    font-size: 24px !important; /* Меньший размер заголовка */
+  }
   .rectangle {
-    width: calc(80% - 40px); /* Full width with gap */
+    font-size: 20px; /* Меньший размер шрифта прямоугольника */
+    width: calc(50% - 30px); /* Two columns with gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .Services {
+    font-size: 20px; /* Меньший размер шрифта */
+    padding: 20px 5%; /* Регулировка отступов для средней ширины экрана */
+  }
+  .Services h2 {
+    font-size: 28px !important;
+    margin-bottom: 40px;
+    background: #f4f4f4;
+    color: #2c3e50;
+    padding: 5px 5px;
+    text-align: center;
+  }
+  .rectangle {
+    font-size: 18px; /* Меньший размер шрифта прямоугольника */
+    height: 100px !important;
+    max-height: 100px !important;
+    width: 200px !important;
+    min-width: 200px !important;
   }
 }

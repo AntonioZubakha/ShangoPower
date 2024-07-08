@@ -15,8 +15,22 @@
   max-width: 100%; /* Предотвращает переполнение */
 }
 
-.logo-container .logo {
+.logo-container .logo-bot {
   height: 60px; /* Высота логотипа такая же, как у хедера */
+}
+
+.contacts-content {
+  margin-top: 10px;
+}
+
+.contacts-content .email a {
+  font-size: 26px;
+  color: #f4f4f4; /* Цвет почты */
+  text-decoration: none;
+}
+
+.contacts-content .email a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
 }
 
 .rights {
@@ -32,11 +46,13 @@
     gap: 10px;
   }
 
-  .social-links {
-    gap: 10px;
-  }
-
   .rights {
     font-size: 12px;
+  }
+
+  .contacts-content .email a {
+    font-size: 16px;
+    color: #f4f4f4; /* Цвет почты */
+    text-decoration: none;
   }
 }

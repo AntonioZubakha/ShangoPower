@@ -64,12 +64,12 @@ const Solar = ({ id }) => {
         <div className="solar-navigation">
           <button className="solar-prev" onClick={handlePrev}>
             <div className="nav-button-background">
-              <img src="/icons/left.png" alt="Previous" />
+              <img src="./icons/left.png" alt="Previous" />
             </div>
           </button>
           <button className="solar-next" onClick={handleNext}>
             <div className="nav-button-background">
-              <img src="/icons/right.png" alt="Next" />
+              <img src="./icons/right.png" alt="Next" />
             </div>
           </button>
         </div>

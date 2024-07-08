@@ -1,27 +1,26 @@
 .RNG-feature {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: stretch;
   background-color: #f4f4f4;
   margin-bottom: 20px;
-  padding: 2% 0%;
+  padding: 2% 10%; /* Общие отступы */
 }
 
-.RNG-feature-reverse {
+.RNG-feature.reverse {
   flex-direction: row-reverse;
 }
 
 .RNG-feature-content {
   flex: 1;
-  padding: 0 8%;
-  font-size: 36px;
+  font-size: 35px;
   text-align: justify;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 38%;
-  max-width: 38%;
+  max-width: 50%;
   color: #2c3e50;
+  margin-left: 5%; /* Отступ между текстовым блоком и слайдером */
 }
 
 .RNG-feature-content p {
@@ -32,7 +31,7 @@
   margin-block-start: 0em;
   margin-block-end: 0em;
   font-size: 46px;
-  margin-bottom: 30px;
+  margin-bottom: 10px; /* Изменение на 10px */
   background: #2c3e50;
   color: white;
   padding: 20px 20px;
@@ -46,6 +45,7 @@
   display: flex;
   justify-content: flex-start;
   margin-top: auto;
+  margin-bottom: 20px;
 }
 
 .RNG-download-btn button {
@@ -56,7 +56,6 @@
   padding: 15px 80px;
   cursor: pointer;
   font-weight: 700;
-  font-size: 16px;
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -97,13 +96,13 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 30%;
   background: rgba(44, 62, 80, 0.9);
   color: white;
-  padding: 10px;
   box-sizing: border-box;
   text-align: left;
   font-size: 26px;
+  z-index: 1;
+  padding: 20px; /* Отступ от левого края */
 }
 
 .RNG-slide-overlay h3 {
@@ -123,12 +122,11 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 .RNG-prev img, .RNG-next img {
@@ -136,22 +134,53 @@
   height: 32px;
 }
 
+.nav-button-background {
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.nav-button-background {
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 50%;
+}
+
 /* Адаптивность */
-@media (max-width: 1024px) {
+
+@media (max-width: 1624px) {
   .RNG-feature-content {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .RNG-feature-title {
-    font-size: 38px;
-  }
-
-  .RNG-slide-overlay {
-    font-size: 22px;
+    font-size: 36px;
   }
 
   .RNG-slide-overlay h3 {
-    font-size: 32px;
+    font-size: 20px;
+  }
+  .RNG-slide-overlay {
+    font-size: 16px;
+    padding: 20px; /* Отступ от левого края */
+  }
+}
+
+@media (max-width: 1024px) {
+  .RNG-feature-content {
+    font-size: 20px;
+  }
+
+  .RNG-feature-title {
+    font-size: 26px;
+  }
+
+  .RNG-slide-overlay {
+    font-size: 16px;
+    padding: 20px; /* Отступ от левого края */
+  }
+
+  .RNG-slide-overlay h3 {
+    font-size: 20px;
   }
 
   .RNG-download-btn button {
@@ -162,89 +191,112 @@
 
 @media (max-width: 768px) {
   .RNG-feature {
-    flex-direction: column;
+    padding: 0 2%;
   }
 
   .RNG-feature-content, .RNG-slider {
-    width: 92%;
-    margin: 0 4%;
+    width: 100%;
+    margin: 0;
   }
 
   .RNG-slider {
-    margin-top: 20px;
+    max-width: 100%;
     width: 100%;
-    height: auto;
+    max-height: 350px;
   }
 
   .RNG-feature-content {
     max-width: 100%;
-    font-size: 24px;
+    font-size: 16px;
+    margin-bottom: 2%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .RNG-feature-title {
-    font-size: 32px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    background: #f4f4f4;
+    color: #2c3e50;
+    padding: 5px 5px;
+    text-align: center;
   }
 
   .RNG-slide-overlay {
-    font-size: 20px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(44, 62, 80, 0.9);
+    padding-left: 20px; /* Отступ от левого края */
   }
 
   .RNG-slide-overlay h3 {
-    font-size: 28px;
+    font-size: 16px;
+  }
+
+  .RNG-download-btn {
+    margin-bottom: 10px; /* Отступ снизу */
   }
 
   .RNG-download-btn button {
     font-size: 12px;
-    padding: 8px 50px;
+  }
+
+  .RNG-slide-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
 @media (max-width: 480px) {
   .RNG-feature {
-    flex-direction: column !important;
+    flex-direction: column-reverse;
+    padding: 0 2%;
   }
 
   .RNG-slider {
     max-width: 100%;
-    width: 100% !important;
-    height: auto !important;
+    width: 100%;
+    max-height: 400px; /* Set a max-height for the slider */
   }
 
   .RNG-slide-media {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .RNG-slide-overlay {
-    position: relative !important;
-    background: rgba(44, 62, 80, 0.9) !important;
-    width: 100% !important;
-    height: auto !important;
-    padding: 10px !important;
-    box-sizing: border-box !important;
-    margin-top: 10px !important;
-  }
-
-  .RNG-feature-content {
-    font-size: 20px !important;
-    padding: 0 5% !important;
-  }
-
-  .RNG-feature-title {
-    font-size: 28px !important;
-  }
-
-  .RNG-slide-overlay {
-    font-size: 18px !important;
+    font-size: 15px !important;
+    position: absolute; /* Maintain absolute positioning for the overlay */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30% !important;
+    background: rgba(44, 62, 80, 0.9);
+    padding: 20px; /* Отступ от левого края */
   }
 
   .RNG-slide-overlay h3 {
-    font-size: 24px !important;
+    font-size: 15px !important;
+  }
+
+  .RNG-feature-content {
+    font-size: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .RNG-feature-title {
+    margin-top: 30px;
+    font-size: 28px;
   }
 
   .RNG-download-btn button {
-    font-size: 10px !important;
-    padding: 6px 40px !important;
+    font-size: 10px;
+    padding: 6px 40px;
   }
 }

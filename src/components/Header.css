@@ -1,28 +1,28 @@
+/* Основные стили для хедера */
 header {
   background-color: white;
   color: black;
-  padding-top: 20px; /* Added padding to move the header content down */
+  padding-bottom: 20px;
 }
 
 .header-container {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to new lines if necessary */
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
+  align-items: flex-end; /* Align items to the bottom */
+  flex-wrap: nowrap; /* Prevent wrapping */
 }
 
-.logo-container {
+.logo-top-container {
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* Align logo to the bottom */
+  margin-left: 10%; /* Add margin to the left */
 }
 
-.logo {
-  height: 60px;
-  display: block;
-  margin-top: -37px; /* Adjusted margin to compensate for the header padding */
+.logo-top {
+  height: 3vw; /* Adapt height to viewport width */
 }
 
+/* Стили для навигации */
 .navigation1 {
   flex-grow: 1;
   display: flex;
@@ -32,9 +32,8 @@ header {
 .nav-menu {
   list-style: none;
   display: flex;
-  flex-wrap: wrap; /* Allows menu items to wrap */
   justify-content: center;
-  gap: 30px;
+  gap: 2vw; /* Adapt gap to viewport width */
   padding: 0;
   margin: 0;
 }
@@ -49,12 +48,13 @@ header {
   color: #2c3e50;
   text-decoration: none;
   font-weight: 600;
-  font-size: 26px;
+  font-size: 1.4vw; /* Adapt font size to viewport width */
   transition: color 0.3s ease;
   position: relative;
   cursor: pointer;
   white-space: nowrap;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.05vw; /* Adapt letter spacing to viewport width */
+  line-height: 1; /* Ensure proper alignment */
 }
 
 .nav-menu li button:hover {
@@ -65,10 +65,10 @@ header {
   content: '';
   position: absolute;
   width: 0;
-  height: 3px;
+  height: 0.2vw; /* Adapt height to viewport width */
   background: #2c3e50;
   left: 0;
-  bottom: -5px;
+  bottom: -0.4vw; /* Adapt bottom position to viewport width */
   transition: width 0.3s ease;
 }
 
@@ -76,21 +76,24 @@ header {
   width: 100%;
 }
 
+/* Стили для кнопки */
 .header-download-btn {
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* Align button to the bottom */
+  margin-right: 1vw; /* Add margin to the right */
 }
 
 .header-download-btn button {
   background-color: #41930b;
   color: white;
   border: none;
-  padding: 12px 25px;
+  padding: 0.8vw 1vw; /* Adapt padding to viewport width */
   cursor: pointer;
   font-weight: 700;
-  font-size: 16px;
-  border-radius: 5px;
+  font-size: 1vw; /* Adapt font size to viewport width */
+  border-radius: 0.4vw; /* Adapt border radius to viewport width */
   transition: background-color 0.3s ease, transform 0.3s ease;
+  line-height: 1; /* Ensure proper alignment */
 }
 
 .header-download-btn button:hover {
@@ -98,39 +101,143 @@ header {
   transform: scale(1.04);
 }
 
-/* Responsive */
+/* Адаптивные стили */
 @media (max-width: 1200px) {
+  .header-container {
+    padding-right: 1.5vw;
+  }
+
+  .logo-top-container {
+    margin-left: 10%;
+  }
+
+  .logo-top {
+    height: 4.5vw; /* Adapt height to viewport width */
+  }
+
+  .nav-menu {
+    gap: 1.8vw; /* Adapt gap to viewport width */
+  }
+
   .nav-menu li button {
-    font-size: 20px;
+    font-size: 1.3vw; /* Adapt font size to viewport width */
+  }
+
+  .header-download-btn button {
+    padding: 0.7vw 0.9vw; /* Adapt padding to viewport width */
+    font-size: 0.9vw; /* Adapt font size to viewport width */
   }
 }
 
 @media (max-width: 992px) {
   .header-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    padding-right: 2vw;
+  }
+
+  .logo-top-container {
+    margin-left: 10%;
+  }
+
+  .logo-top {
+    height: 4vw; /* Adapt height to viewport width */
   }
 
   .nav-menu {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 1.5vw; /* Adapt gap to viewport width */
+  }
+
+  .nav-menu li button {
+    font-size: 1.2vw; /* Adapt font size to viewport width */
+  }
+
+  .header-download-btn button {
+    padding: 0.6vw 0.8vw; /* Adapt padding to viewport width */
+    font-size: 0.8vw; /* Adapt font size to viewport width */
   }
 }
 
 @media (max-width: 768px) {
+  .header-container {
+    padding-right: 2.5vw;
+  }
+
+  .logo-top-container {
+    margin-left: 3%;
+  }
+
+  .logo-top {
+    height: 3.5vw; /* Adapt height to viewport width */
+  }
+
   .nav-menu {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 1.2vw; /* Adapt gap to viewport width */
+  }
+
+  .nav-menu li button {
+    font-size: 1.15vw; /* Adapt font size to viewport width */
+  }
+
+  .header-download-btn button {
+    padding: 0.5vw 0.7vw; /* Adapt padding to viewport width */
+    font-size: 0.7vw; /* Adapt font size to viewport width */
   }
 }
 
 @media (max-width: 576px) {
-  .nav-menu {
+  .header-container {
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
+    padding: 0;
+    align-items: center; /* Center align items for mobile */
+  }
+
+  .logo-top-container {
+    margin-left: 0;
+  }
+
+  .logo-top {
+    height: 8vw; /* Adapt height to viewport width */
+  }
+
+  .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки */
+    gap: 4vw; /* Промежуток между элементами */
+    justify-content: center; /* Центрирование элементов */
+    margin-top: 1rem; /* Верхний отступ для размещения */
+    position: relative; /* Для псевдоэлемента */
+  }
+
+  .nav-menu li {
+    width: auto; /* Автоматическая ширина для гибкости */
+    text-align: center; /* Центрирование текста */
+  }
+
+  .nav-menu li button {
+    font-size: 4vw; /* Адаптация размера шрифта к ширине окна */
+    padding: 1vw; /* Отступ для кнопки */
+  }
+
+  /* Создание пустой ячейки на седьмом месте */
+  .nav-menu li:nth-child(7) {
+    order: 8;
+  }
+
+  /* Добавление пустого элемента */
+  .nav-menu::before {
+    content: '';
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .header-download-btn {
+    margin-top: 1rem; /* Top margin for button */
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: center; /* Center align button */
+  }
+
+  .header-download-btn button {
+    padding: 2vw 3vw; /* Adapt padding to viewport width */
+    font-size: 4vw; /* Adapt font size to viewport width */
   }
 }
