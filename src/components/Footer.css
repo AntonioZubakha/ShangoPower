@@ -1,0 +1,58 @@
+/* Footer */
+.footer {
+  background-color: #2c3e50; /* Цвет фона такой же, как у хедера */
+  color: #fff;
+  padding: 40px 20px; /* Увеличен padding для большего размера футера */
+  text-align: center;
+  overflow: hidden; /* Запрещает элементам выходить за пределы контейнера */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 100%; /* Предотвращает переполнение */
+}
+
+.logo-container .logo-bot {
+  height: 60px; /* Высота логотипа такая же, как у хедера */
+}
+
+.contacts-content {
+  margin-top: 10px;
+}
+
+.contacts-content .email a {
+  font-size: 26px;
+  color: #f4f4f4; /* Цвет почты */
+  text-decoration: none;
+}
+
+.contacts-content .email a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.rights {
+  font-size: 14px;
+  color: #bbb;
+  max-width: 100%; /* Предотвращает переполнение */
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .rights {
+    font-size: 12px;
+  }
+
+  .contacts-content .email a {
+    font-size: 16px;
+    color: #f4f4f4; /* Цвет почты */
+    text-decoration: none;
+  }
+}

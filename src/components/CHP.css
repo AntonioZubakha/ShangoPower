@@ -1,0 +1,304 @@
+.CHP-feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #ffffff;
+  border-bottom: 2px solid #ddd;
+  border-top: 2px solid #ddd;
+  padding: 2% 10%; /* Общие отступы */
+}
+
+.CHP-feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.CHP-feature-content {
+  flex: 1;
+  font-size: 35px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 50%;
+  color: #2c3e50;
+  margin-right: 5%; /* Отступ между текстовым блоком и слайдером */
+}
+
+.CHP-feature-content p {
+  margin-bottom: 10px;
+}
+
+.CHP-feature-title {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-size: 46px;
+  margin-bottom: 10px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px 20px;
+  border-radius: 10px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.CHP-download-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.CHP-download-btn button {
+  font-size: 16px;
+  background: #41930b;
+  color: white;
+  border: none;
+  padding: 15px 80px;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.CHP-download-btn button:hover {
+  background-color: #57d100;
+  transform: scale(1.04);
+}
+
+.CHP-slider {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  max-width: 50%;
+  height: 90vh;
+}
+
+.CHP-slides {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  height: 100%;
+}
+
+.CHP-slide {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.CHP-slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.CHP-slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(44, 62, 80, 0.9);
+  color: white;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 26px;
+  z-index: 1;
+  padding-left: 20px; /* Отступ от левого края */
+}
+
+.CHP-slide-overlay h3 {
+  font-size: 36px;
+}
+
+.CHP-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.CHP-prev, .CHP-next {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+}
+
+.CHP-prev img, .CHP-next img {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-button-background {
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.nav-button-background {
+  background: rgba(44, 62, 80, 0.7);
+  border-radius: 50%;
+}
+
+/* Адаптивность */
+@media (max-width: 1624px) {
+    .CHP-feature-content {
+      font-size: 26px;
+    }
+
+    .CHP-feature-title {
+      font-size: 36px;
+    }
+
+    .CHP-slide-overlay h3 {
+      font-size: 20px;
+    }
+    .CHP-slide-overlay {
+      font-size: 16px;
+      padding: 20px; /* Отступ от левого края */
+    }
+  }
+  
+@media (max-width: 1024px) {
+    .CHP-feature-content {
+      font-size: 20px;
+    }
+  
+    .CHP-feature-title {
+      font-size: 26px;
+    }
+  
+    .CHP-slide-overlay {
+      font-size: 16px;
+      padding: 20px; /* Отступ от левого края */
+    }
+  
+    .CHP-slide-overlay h3 {
+      font-size: 20px;
+    }
+  
+    .CHP-download-btn button {
+      font-size: 14px;
+      padding: 10px 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .CHP-feature {
+      padding: 0 2%;
+    }
+  
+    .CHP-feature-content, .CHP-slider {
+      width: 100%;
+      margin: 0;
+    }
+  
+    .CHP-slider {
+      max-width: 100%;
+      width: 100%;
+      max-height: 350px;
+    }
+  
+    .CHP-feature-content {
+      padding-left: 15px;
+      padding-right: 15px;
+      max-width: 100%;
+      font-size: 16px;
+      margin-bottom: 2%;
+    }
+  
+    .CHP-feature-title {
+      font-size: 16px;
+      margin-bottom: 5px;
+      background: #ffffff;
+      color: #2c3e50;
+      padding: 5px 5px;
+      text-align: center;
+    }
+  
+    .CHP-slide-overlay {
+      font-size: 16px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(44, 62, 80, 0.9);
+      padding-left: 20px; /* Отступ от левого края */
+    }
+  
+    .CHP-slide-overlay h3 {
+      font-size: 16px;
+    }
+  
+    .CHP-download-btn {
+      margin-bottom: 10px; /* Отступ снизу */
+    }
+  
+    .CHP-download-btn button {
+      font-size: 12px;
+    }
+  
+    .CHP-slide-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+@media (max-width: 480px) {
+  .CHP-feature {
+    margin-top: 30px;
+    flex-direction: column;
+    padding: 0 2%;
+  }
+
+  .CHP-slider {
+    max-width: 100%;
+    width: 100%;
+    max-height: 400px;
+    margin-bottom: 30px;
+  }
+
+  .CHP-slide-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .CHP-slide-overlay {
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: rgba(44, 62, 80, 0.9);
+    padding-left: 20px; /* Отступ от левого края */
+  }
+
+  .CHP-slide-overlay h3 {
+    font-size: 15px;
+  }
+
+  .CHP-feature-content {
+    font-size: 20px;
+    margin-bottom: 2%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .CHP-feature-title {
+    font-size: 28px;
+    margin-top: 30px; /* Отступ сверху */
+  }
+
+  .CHP-download-btn button {
+    font-size: 10px;
+    padding: 6px 40px;
+  }
+}

@@ -1,0 +1,238 @@
+/* ConsultationForm.css */
+
+/* Общие стили */
+.form-container {
+  display: flex;
+  padding: 2% 10%; /* Добавлены отступы 10% от краев */
+  background-color: #F4F4F4;
+  color: #2c3e50;
+  justify-content: space-between;
+}
+
+.info-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.6rem;
+  text-align: center;
+  padding-right: 5%;
+  background-color: transparent;
+  justify-content: flex-start;
+}
+
+.form-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.6rem;
+  text-align: center;
+  padding-left: 5%;
+  background-color: transparent;
+}
+
+.info-text h1 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.info-block img {
+  width: 80%;
+  height: auto;
+  transform: scale(1);
+  margin-top: auto;
+}
+
+.form-wrapper {
+  position: relative;
+  width: 95%;
+}
+
+form {
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  transition: opacity 0.5s;
+  color: inherit;
+}
+
+form.hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+}
+
+form label {
+  padding-left: 20px;
+  font-size: 16px;
+  color: inherit;
+  margin-bottom: 3px;
+}
+
+form input {
+  padding: 10px;
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+  color: inherit;
+}
+
+form button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #41930b;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 40%;
+  margin-top: auto;
+  margin-bottom: 0px;
+}
+
+.error-message {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+form button:hover {
+  background-color: #57d100;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.04);
+}
+
+.thank-you-slide {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #dee2e6;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 20px auto;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  color: inherit;
+}
+
+.thank-you-slide.visible {
+  display: block;
+}
+
+.thank-you-slide h2 {
+  font-size: 2.2rem;
+  color: inherit;
+  margin-bottom: 20px;
+}
+
+.thank-you-slide p {
+  font-size: 1.6rem;
+  color: inherit;
+  margin-bottom: 10px;
+}
+
+.consent-text {
+  font-size: 1rem;
+  color: inherit;
+  margin-bottom: 10px;
+}
+
+/* Стили для экранов шириной 768px и меньше */
+@media (max-width: 768px) {
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 5%;
+  }
+
+  .info-block {
+    padding: 0;
+    order: 1;
+  }
+
+  .form-wrapper {
+    order: 2;
+    width: 100%;
+  }
+
+  .info-block img {
+    height: 0;
+    width: 0;
+    order: 3;
+    width: 50%;
+    margin-top: 20px;
+  }
+
+  .info-text h1 {
+    font-size: 1.3rem;
+  }
+
+  form input {
+    font-size: 1.1rem;
+  }
+}
+
+/* Адаптивные стили для других размеров экранов */
+@media (max-width: 1600px) {
+  .info-text h1 {
+    font-size: 1.5rem;
+  }
+
+  form input {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .info-text h1 {
+    font-size: 1.4rem;
+  }
+
+  form input {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-text h1 {
+    font-size: 1.1rem;
+  }
+
+  form input {
+    font-size: 0.9rem;
+  }
+}
+
+/* Анимация */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
