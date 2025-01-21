@@ -1,12 +1,8 @@
 .portfolio {
-  background-color: #ffffff;
+  width: 100%;
   padding: 2% 10%;
   border-bottom: 2px solid #ddd;
-<<<<<<< HEAD
-  border-top: 2px solid #ddd; 
-=======
   border-top: 2px solid #ddd;
->>>>>>> ec651ba4ebe33379bb73f4de99aa8e7c0710d575
 }
 
 .portfolio-content {
