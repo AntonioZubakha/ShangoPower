@@ -59,6 +59,11 @@
   margin-bottom: 8px;
 }
 
+.text-block h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
 .portfolio-navigation {
   position: absolute;
   top: 50%;
@@ -125,6 +130,9 @@
   .text-block p {
     font-size: 16px;
   }
+  .text-block h3 {
+    font-size: 20px;
+  }
   .portfolio-title {
     font-size: 16px;
     margin-bottom: 5px;
@@ -173,6 +181,10 @@
   .text-block p {
     font-size: 14px;
     margin-bottom: 5px;
+  }
+
+  .text-block h3 {
+    font-size: 16px;
   }
 
   .portfolio-title {

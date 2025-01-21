@@ -99,10 +99,19 @@ const Portfolio = forwardRef((props, ref) => {
               <div className="portfolio-slide" key={index}>
                 <img src={slide.image} alt={`Slide ${index + 1}`} />
                 <div className="text-block">
-                  <p><strong>Industry:</strong> {slide.text.industry}</p>
-                  <p><strong>Location:</strong> {slide.text.location}</p>
-                  <p><strong>Solution:</strong> {slide.text.solution}</p>
-                  <p><strong>Works:</strong> {slide.text.works}</p>
+                  {slide.text ? (
+                    <>
+                      <p><strong>Industry:</strong> {slide.text.industry}</p>
+                      <p><strong>Location:</strong> {slide.text.location}</p>
+                      <p><strong>Solution:</strong> {slide.text.solution}</p>
+                      <p><strong>Works:</strong> {slide.text.works}</p>
+                    </>
+                  ) : (
+                    <>
+                      <h3>{slide.title}</h3>
+                      <p>{slide.description}</p>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
