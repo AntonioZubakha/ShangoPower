@@ -15,7 +15,11 @@ const Portfolio = forwardRef((props, ref) => {
       }
     },
     {
+<<<<<<< HEAD
       image: 'images/ppp.jpg',
+=======
+      image: 'images/portfolio2.jpeg',
+>>>>>>> ec651ba4ebe33379bb73f4de99aa8e7c0710d575
       text: {
         industry: 'Lab-grown diamonds',
         location: 'East Europe',
