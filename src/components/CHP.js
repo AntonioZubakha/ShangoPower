@@ -18,7 +18,7 @@ const CHP = ({ id }) => {
     { 
       image: 'images/chp4.jpeg', 
       title: 'Feasibility study and pay-back calculation', 
-      description: 'Maximizing the project’s efficiency and profitability. Thorough assessment and dimensioning.' 
+      description: 'Maximizing the project\'s efficiency and profitability. Thorough assessment and dimensioning.' 
     }
   ];
 
@@ -57,7 +57,15 @@ const CHP = ({ id }) => {
         <div className="CHP-slides" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {video && (
             <div className="CHP-slide" key="video">
-              <video src={video.src} autoPlay loop muted className="CHP-slide-media" />
+              <video 
+                src={video.src} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                preload="auto"
+                className="CHP-slide-media" 
+              />
               <div className="CHP-slide-overlay">
                 <h3>{video.title}</h3>
                 <p>{video.description}</p>

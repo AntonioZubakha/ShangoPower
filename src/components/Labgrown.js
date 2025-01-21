@@ -62,7 +62,15 @@ const Labgrown = forwardRef((props, ref) => {
         <div className="labgrown-slides" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {video && (
             <div className="labgrown-slide" key="video">
-              <video src={video.src} autoPlay loop muted className="labgrown-slide-media" />
+              <video 
+                src={video.src} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                preload="auto"
+                className="labgrown-slide-media" 
+              />
               <div className="labgrown-slide-overlay">
                 <h3>{video.title}</h3>
                 <p>{video.description}</p>

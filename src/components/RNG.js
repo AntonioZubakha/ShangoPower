@@ -47,7 +47,15 @@ const RNG = ({ id }) => {
         <div className="RNG-slides" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {video && (
             <div className="RNG-slide" key="video">
-              <video src={video} autoPlay loop muted className="RNG-slide-media" />
+              <video 
+                src={video} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                preload="auto"
+                className="RNG-slide-media" 
+              />
               <div className="RNG-slide-overlay">
                 <h3>Technology Selection and Project Concept Creation</h3>
                 <p>From waste to RNG off-take.</p>

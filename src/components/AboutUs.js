@@ -8,7 +8,15 @@ const AboutUs = () => {
   return (
     <section id="aboutus" className="aboutus">
       <div className="aboutus-slide">
-        <video src={video} autoPlay loop muted className="aboutus-slide-media" />
+        <video 
+          src={video} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          preload="auto"
+          className="aboutus-slide-media" 
+        />
         <div className="aboutus-content">
           <h1 className="aboutus-title">About us</h1>
           <p>Shango Power is your consulting partner for renewable energy and sustainability solutions.</p>

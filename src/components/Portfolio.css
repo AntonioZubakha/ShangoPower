@@ -1,6 +1,8 @@
 .portfolio {
   background-color: #ffffff;
   padding: 2% 10%;
+  border-bottom: 2px solid #ddd;
+  border-top: 2px solid #ddd; 
 }
 
 .portfolio-content {

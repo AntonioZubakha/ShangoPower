@@ -44,7 +44,15 @@ const Solar = ({ id }) => {
         <div className="solar-slides" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {video && (
             <div className="solar-slide" key="video">
-              <video src={video} autoPlay loop muted className="solar-slide-media" />
+              <video 
+                src={video} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                preload="auto"
+                className="solar-slide-media" 
+              />
               <div className="solar-slide-overlay">
                 <h3>Project development</h3>
                 <p>High quality and in-time works and services.</p>
