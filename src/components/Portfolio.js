@@ -15,17 +15,9 @@ const Portfolio = forwardRef((props, ref) => {
       }
     },
     {
-<<<<<<< HEAD
       image: 'images/ppp.jpg',
-=======
-      image: 'images/portfolio2.jpeg',
->>>>>>> ec651ba4ebe33379bb73f4de99aa8e7c0710d575
-      text: {
-        industry: 'Lab-grown diamonds',
-        location: 'East Europe',
-        solution: 'Electricity supply optimization',
-        works: 'MV panel room, Metering system, Ventilation system'
-      }
+      title: 'Cost reduction', 
+      description: 'Strategies in the energy costs reduction for the Lab-Grown Diamonds production facilities.'
     },
     {
       image: 'images/portfolio3.jpeg',
