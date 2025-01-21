@@ -1,18 +1,23 @@
 .portfolio {
   width: 100%;
-  padding: 2% 10%;
+  padding: 2% 5%;
   border-bottom: 2px solid #ddd;
   border-top: 2px solid #ddd;
 }
 
 .portfolio-content {
   text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .portfolio-slider {
   position: relative;
   overflow: hidden;
   height: 90vh;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .portfolio-slides {
@@ -67,11 +72,13 @@
 .portfolio-navigation {
   position: absolute;
   top: 50%;
-  width: calc(100% - 40px); /* Учитываем отступы по 20px с каждой стороны */
+  width: 100%;
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
-  padding: 0 20px; /* Отступы по 20px с каждой стороны */
+  padding: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .portfolio-prev, .portfolio-next {
@@ -83,6 +90,17 @@
   justify-content: center;
   width: 50px;
   height: 50px;
+  z-index: 3;
+  pointer-events: auto;
+  position: absolute;
+}
+
+.portfolio-prev {
+  left: 5px;
+}
+
+.portfolio-next {
+  right: 5px;
 }
 
 .portfolio-prev img, .portfolio-next img {
@@ -94,6 +112,11 @@
   background: rgba(44, 62, 80, 0.7);
   border-radius: 50%;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
 }
 
 /* Responsive Styles */
@@ -121,25 +144,45 @@
 
 @media (max-width: 768px) {
   .portfolio {
-    background-color: #ffffff;
-    padding: 2% 2%;
+    padding: 2% 0; /* Уменьшим отступы */
   }
-  .text-block {
-    padding: 10px;
-  }
-  .text-block p {
-    font-size: 16px;
-  }
-  .text-block h3 {
-    font-size: 20px;
-  }
+
   .portfolio-title {
-    font-size: 16px;
+    font-size: 24px !important;
+    margin: 20px auto;
+    padding: 10px 30px;
+    background: #2c3e50; /* Вернем темный фон */
+    color: white; /* Вернем белый текст */
+  }
+
+  .portfolio-slider {
+    height: 70vh; /* Уменьшим высоту слайдера */
+    padding: 0; /* Уберем отступы */
+  }
+
+  .text-block {
+    padding: 15px;
+  }
+
+  .text-block p {
+    font-size: 14px;
     margin-bottom: 5px;
-    background: #ffffff;
-    color: #2c3e50;
-    padding: 5px 5px;
-    text-align: center;
+  }
+
+  .portfolio-prev, .portfolio-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-button-background {
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+  }
+
+  .portfolio-prev img, .portfolio-next img {
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -155,10 +198,7 @@
   }
 
   .portfolio-slider {
-    max-width: 100%;
-    width: 100%;
-    max-height: 400px;
-    margin-bottom: 30px;
+    height: 60vh; /* Еще уменьшим высоту для маленьких экранов */
   }
 
   .portfolio-slide img {
@@ -179,8 +219,8 @@
   }
 
   .text-block p {
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-size: 12px;
+    margin-bottom: 3px;
   }
 
   .text-block h3 {
@@ -188,9 +228,36 @@
   }
 
   .portfolio-title {
-    font-size: 28px;
-    margin-top: 30px; /* Отступ сверху */
-    padding-left: 0px;
-    padding-right: 0px;
+    font-size: 20px !important;
+    margin: 15px auto;
+    padding: 8px 20px;
+  }
+
+  .portfolio-content {
+    padding: 0 10px;
+  }
+
+  .portfolio-prev, .portfolio-next {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-button-background {
+    width: 20px;
+    height: 20px;
+    padding: 6px;
+  }
+
+  .portfolio-prev img, .portfolio-next img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .portfolio-prev {
+    left: 2px;
+  }
+
+  .portfolio-next {
+    right: 2px;
   }
 }

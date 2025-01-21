@@ -226,17 +226,18 @@
     }
   
     .CHP-slide-overlay {
-      font-size: 16px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(44, 62, 80, 0.9);
-      padding-left: 20px; /* Отступ от левого края */
+      padding: 15px;
     }
   
     .CHP-slide-overlay h3 {
-      font-size: 16px;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+  
+    .CHP-slide-overlay p {
+      font-size: 14px;
+      line-height: 1.3;
+      margin-bottom: 5px;
     }
   
     .CHP-download-btn {
@@ -275,18 +276,18 @@
   }
 
   .CHP-slide-overlay {
-    font-size: 15px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background: rgba(44, 62, 80, 0.9);
-    padding-left: 20px; /* Отступ от левого края */
+    padding: 10px;
   }
 
   .CHP-slide-overlay h3 {
-    font-size: 15px;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .CHP-slide-overlay p {
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 3px;
   }
 
   .CHP-feature-content {

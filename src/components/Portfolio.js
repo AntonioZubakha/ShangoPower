@@ -16,8 +16,12 @@ const Portfolio = forwardRef((props, ref) => {
     },
     {
       image: 'images/ppp.jpg',
-      title: 'Cost reduction', 
-      description: 'Strategies in the energy costs reduction for the Lab-Grown Diamonds production facilities.'
+      text: {
+        industry: 'Lab-Grown Diamonds production',
+        location: 'East Europe',
+        solution: 'Renewable natural gas',
+        works: 'Strategies in the energy costs reduction for the Lab-Grown Diamonds production facilities'
+      }
     },
     {
       image: 'images/portfolio3.jpeg',
@@ -124,7 +128,7 @@ const Portfolio = forwardRef((props, ref) => {
             </button>
             <button className="portfolio-next" onClick={handleNext}>
               <div className="nav-button-background">
-                <img src="./icons/right.png" alt="Next" />
+                <img src="/icons/right.png" alt="Next" />
               </div>
             </button>
           </div>
