@@ -1,0 +1,406 @@
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  contain: layout style paint;
+  isolation: isolate;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: Слайдер квадратный, но с overlay под ним */
+@media (max-width: 767px) {
+  .slider {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    overflow: hidden; /* Скрываем соседние слайды */
+    contain: none; /* Убираем contain, чтобы overlay был виден */
+    /* Убираем aspect-ratio для слайдера, чтобы overlay был виден */
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.slider-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: wrapper содержит изображение и overlay, скрывает соседние слайды */
+@media (max-width: 767px) {
+  .slider-wrapper {
+    flex: 0 0 auto;
+    aspect-ratio: unset; /* Убираем aspect-ratio, чтобы overlay был виден */
+    height: auto;
+    min-height: auto;
+    overflow: hidden; /* Скрываем соседние слайды */
+    position: relative;
+    width: 100%; /* Убеждаемся, что wrapper занимает всю ширину */
+    display: block; /* Block для правильного отображения слайдов - это viewport для transform */
+  }
+}
+
+.slider-content {
+  display: flex;
+  height: 100%;
+  transition: transform var(--transition-slower) var(--ease-in-out);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%; /* Базовая ширина, но каждый слайд занимает 100% от wrapper */
+  flex-wrap: nowrap; /* Не переносим слайды */
+}
+
+/* Mobile: Контент адаптируется под квадрат и показывает overlay */
+@media (max-width: 767px) {
+  .slider-content {
+    height: auto; /* Позволяем контенту расширяться для показа overlay */
+    min-height: auto;
+    overflow: hidden; /* Скрываем соседние слайды и артефакты */
+    width: 100%; /* Базовая ширина = ширина одного слайда */
+    min-width: 100%; /* Минимум 100% для одного слайда */
+    display: flex; /* Явно указываем flex для правильного отображения */
+    align-items: stretch; /* Растягиваем слайды на всю высоту */
+    flex-wrap: nowrap; /* Не переносим слайды */
+    flex-direction: row; /* Горизонтальное направление */
+  }
+}
+
+.slider-slide {
+  flex: 0 0 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0; /* Предотвращаем переполнение */
+  box-sizing: border-box; /* Учитываем padding и border в ширине */
+}
+
+/* Mobile: слайд должен показывать overlay под изображением */
+@media (max-width: 767px) {
+  .slider-slide {
+    overflow: visible; /* Overlay внутри слайда должен быть виден */
+    height: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* 100% от wrapper */
+    flex: 0 0 100%; /* Фиксированная ширина 100% без сжатия */
+    flex-shrink: 0; /* Предотвращаем сжатие слайдов */
+    min-width: 100%; /* Минимум 100% от wrapper */
+    max-width: 100%; /* Максимум 100% от wrapper */
+    box-sizing: border-box; /* Учитываем padding и border в ширине */
+  }
+}
+
+/* Desktop: overlay поверх изображения */
+@media (min-width: 768px) {
+  .slider-slide {
+    display: block;
+    min-height: auto;
+  }
+}
+
+.slider-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Mobile: Делаем изображение квадратным, overlay под ним - ВСЕГДА ВИДЕН */
+@media (max-width: 767px) {
+  .slider-media {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    height: auto;
+    flex: 0 0 auto;
+    min-width: 0; /* Предотвращаем переполнение */
+    max-width: 100%; /* Ограничиваем максимальную ширину */
+  }
+  
+  .slider-overlay {
+    flex: 0 0 auto;
+    min-height: auto;
+    max-height: none;
+    height: auto;
+    position: static;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100%;
+  }
+}
+
+.slider-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    var(--black-rgba-75) 0%,
+    var(--black-rgba-60) 50%,
+    var(--black-rgba-35) 78%,
+    transparent 100%
+  );
+  color: #ffffff;
+  padding: clamp(var(--spacing-lg), 4vw, var(--spacing-2xl));
+  box-sizing: border-box;
+  text-align: left;
+  z-index: var(--z-base);
+}
+
+/* Mobile: Перемещаем overlay под квадратное изображение - ОБЯЗАТЕЛЬНО ВИДЕН, фиксированная высота */
+@media (max-width: 767px) {
+  .slider-overlay {
+    position: static !important;
+    order: 2;
+    background: linear-gradient(
+      135deg,
+      rgba(44, 62, 80, 0.98) 0%,
+      rgba(44, 62, 80, 0.95) 100%
+    ) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: clamp(var(--spacing-md), 3vw, var(--spacing-lg)) clamp(var(--spacing-md), 4vw, var(--spacing-xl));
+    margin-top: 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10;
+    width: 100%;
+    min-height: clamp(140px, 36vw, 220px);
+    height: clamp(170px, 45vw, 260px);
+    max-height: clamp(220px, 60vw, 340px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .slider-overlay h3 {
+    flex-shrink: 0;
+    margin-bottom: clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm));
+    overflow: visible;
+    text-overflow: initial;
+    white-space: normal;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .slider-overlay p {
+    flex: 1 1 auto;
+    overflow: visible;
+    margin: 0;
+    min-height: 0;
+    display: block !important;
+    white-space: normal;
+    word-break: break-word;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+.slider-overlay h3 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile: Уменьшаем размер заголовка */
+@media (max-width: 767px) {
+  .slider-overlay h3 {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    margin-bottom: clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm));
+    text-shadow: none;
+  }
+}
+
+.slider-overlay p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  white-space: pre-line;
+}
+
+/* Mobile: Улучшаем размер и читаемость текста */
+@media (max-width: 767px) {
+  .slider-overlay p {
+    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: none;
+  }
+}
+
+/* Navigation */
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: calc(var(--z-base) + 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(44px, 5.5vw, 56px);
+  height: clamp(44px, 5.5vw, 56px);
+  min-width: var(--touch-target-min);
+  min-height: var(--touch-target-min);
+  transition: opacity var(--transition-base), transform var(--transition-fast);
+  padding: var(--spacing-xs);
+}
+
+.slider-nav:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.12);
+}
+
+.slider-nav:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.slider-nav:focus-visible {
+  outline: 3px solid var(--white-rgba-80);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.slider-prev {
+  left: clamp(8px, 1.5vw, 20px);
+}
+
+.slider-next {
+  right: clamp(8px, 1.5vw, 20px);
+}
+
+.nav-button-background {
+  background: var(--black-rgba-50);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50%;
+  padding: clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 12px var(--black-rgba-30);
+}
+
+.nav-button-background:hover {
+  background: var(--black-rgba-70);
+  transform: scale(1.05);
+}
+
+.nav-button-background img {
+  width: clamp(20px, 3vw, 28px);
+  height: clamp(20px, 3vw, 28px);
+  filter: brightness(0) invert(1);
+}
+
+/* Dots */
+.slider-dots {
+  position: absolute;
+  bottom: clamp(var(--spacing-md), 2.5vw, var(--spacing-xl));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: clamp(10px, 1.5vw, 14px);
+  z-index: 2;
+  padding: var(--spacing-xs);
+  background: var(--black-rgba-20);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 999px;
+  box-shadow: 0 2px 12px var(--black-rgba-30);
+}
+
+/* Mobile: Перемещаем dots выше, так как overlay теперь снизу */
+@media (max-width: 767px) {
+  .slider-dots {
+    bottom: auto;
+    top: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+    background: var(--black-rgba-40);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--white-rgba-90);
+  background: var(--white-rgba-30);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.slider-dot:hover {
+  background: var(--white-rgba-60);
+  transform: scale(1.15);
+  border-color: var(--text-light);
+}
+
+.slider-dot:focus-visible {
+  outline: 2px solid var(--text-light);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.slider-dot.active {
+  background: var(--text-light);
+  width: 32px;
+  border-radius: 999px;
+  border-color: var(--text-light);
+  box-shadow: 0 0 8px var(--white-rgba-50);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .nav-button-background img {
+    width: 18px;
+    height: 18px;
+  }
+}
+

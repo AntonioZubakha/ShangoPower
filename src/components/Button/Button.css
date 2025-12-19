@@ -1,0 +1,287 @@
+.btn {
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: var(--line-height-tight);
+  position: relative;
+  overflow: hidden;
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  letter-spacing: 0.02em;
+  transform-style: preserve-3d;
+  color: var(--btn-text, #0b1c0b);
+  isolation: isolate;
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 3px;
+}
+
+/* Variants */
+.btn-primary {
+  background: linear-gradient(135deg, #63e629 0%, #3c8f0c 100%);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.14),
+    0 4px 10px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+  border-color: rgba(112, 233, 76, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(99, 230, 41, 0.4), rgba(60, 143, 12, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #75ef3c 0%, #4ba81a 100%);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.18),
+    0 6px 14px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.16) inset,
+    0 0 40px rgba(99, 230, 41, 0.4);
+}
+
+.btn-primary:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.btn-primary:hover:not(:disabled)::after {
+  opacity: 1;
+}
+
+.btn-primary.btn-magnetic:hover:not(:disabled) {
+  transform: translateY(-3px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.16),
+    0 3px 10px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Glow pulse animation */
+.btn-glow.btn-primary {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 12px 26px rgba(0, 0, 0, 0.14),
+      0 4px 10px rgba(0, 0, 0, 0.12),
+      0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+      0 0 20px rgba(99, 230, 41, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 12px 26px rgba(0, 0, 0, 0.14),
+      0 4px 10px rgba(0, 0, 0, 0.12),
+      0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+      0 0 30px rgba(99, 230, 41, 0.4);
+  }
+}
+
+/* Text color adjustments for context */
+.btn-on-light {
+  --btn-text: #0b1c0b;
+  text-shadow: none;
+}
+
+.btn-on-dark {
+  --btn-text: #f5fff2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: #ffffff;
+  box-shadow: 
+    0 8px 24px rgba(44, 62, 80, 0.4),
+    0 4px 12px rgba(44, 62, 80, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #34495e 0%, #3d566e 100%);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 12px 32px rgba(44, 62, 80, 0.5),
+    0 6px 16px rgba(44, 62, 80, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+.btn-secondary:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 
+    0 4px 12px rgba(44, 62, 80, 0.4),
+    0 2px 6px rgba(44, 62, 80, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+}
+
+.btn-outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #2c3e50;
+  border: 2px solid rgba(44, 62, 80, 0.3);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  position: relative;
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  border-radius: 10px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: rgba(44, 62, 80, 0.9);
+  color: #ffffff;
+  border-color: #2c3e50;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 12px 32px rgba(44, 62, 80, 0.4),
+    0 6px 16px rgba(44, 62, 80, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+}
+
+.btn-outline:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.btn-outline:active:not(:disabled) {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 
+    0 4px 12px rgba(44, 62, 80, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Sizes */
+.btn-small {
+  font-size: var(--font-size-small);
+  padding: clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm)) clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+}
+
+.btn-medium {
+  font-size: var(--font-size-base);
+  padding: clamp(var(--spacing-sm), 2vw, var(--spacing-md)) clamp(var(--spacing-md), 3vw, var(--spacing-lg));
+}
+
+.btn-large {
+  font-size: var(--font-size-base);
+  padding: clamp(var(--spacing-md), 2.5vw, var(--spacing-lg)) clamp(var(--spacing-xl), 4vw, calc(var(--spacing-xl) * 1.35));
+}
+
+/* Magnetic button smooth transition */
+.btn-magnetic {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Disable glow on hover for better UX */
+.btn-primary.btn-glow:hover:not(:disabled) {
+  animation: none;
+}
+

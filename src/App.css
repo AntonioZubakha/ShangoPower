@@ -1,0 +1,32 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-wrapper {
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section spacing */
+section {
+  scroll-margin-top: clamp(80px, 12vw, 110px);
+  width: 100%;
+  overflow-x: hidden;
+}
+
