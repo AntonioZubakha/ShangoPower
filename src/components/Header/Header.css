@@ -440,6 +440,12 @@
   border-radius: 50%;
 }
 
+@media (min-width: 768px) {
+  .navigation-close {
+    display: none;
+  }
+}
+
 .nav-menu {
   flex-direction: column;
   gap: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
