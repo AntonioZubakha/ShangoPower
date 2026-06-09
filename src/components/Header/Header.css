@@ -9,7 +9,7 @@
   contain: layout style;
   flex-shrink: 0;
   border-bottom: 1px solid rgba(99, 230, 41, 0.12);
-  overflow: visible;
+  overflow-x: clip;
   transition: all 0.3s ease;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -35,19 +35,20 @@
 
 .header.scrolled .logo {
   height: clamp(28px, 4vw, 36px);
-  transform: translateY(0);
 }
 
 
 .header-container {
+  container-type: inline-size;
+  container-name: header;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 clamp(24px, 4vw, 80px);
+  padding: 0 clamp(16px, 3vw, 80px);
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   justify-items: start;
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: clamp(0.75rem, 2vw, 2.5rem);
   height: clamp(64px, 7.5vw, 84px);
   min-height: clamp(64px, 7.5vw, 84px);
   line-height: 1.2;
@@ -95,19 +96,20 @@
   align-self: center;
   position: relative;
   background: transparent;
-  min-width: 140px;
+  min-width: 0;
+  max-width: clamp(120px, 18vw, 200px);
 }
 
 .logo {
-  height: clamp(36px, 5vw, 44px);
-  width: auto;
+  height: clamp(32px, 4.5vw, 44px);
+  width: 100%;
+  max-width: 100%;
   object-fit: contain;
-  object-position: center;
+  object-position: left bottom;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
   display: block;
   margin: 0;
-  transform: none;
   cursor: pointer;
 }
 
@@ -118,6 +120,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  min-width: 0;
   align-self: center;
   background: transparent;
 }
@@ -371,11 +374,6 @@
   border-radius: 50%;
 }
 
-@media (min-width: 768px) {
-  .navigation-close {
-    display: none;
-  }
-}
 
 .nav-menu {
   flex-direction: column;
@@ -460,19 +458,47 @@
 }
 
 /* ============================================
-   Tablet and up (768px+)
+   Tablet layout (768px+): logo left, drawer nav
    ============================================ */
 @media (min-width: 768px) {
+  .header-container {
+    --header-baseline-offset: clamp(20px, 2.2vw, 26px);
+    --logo-baseline-lift: clamp(3px, 0.28vw, 4px);
+  }
+
+  .header.scrolled .header-container {
+    --header-baseline-offset: clamp(14px, 1.7vw, 18px);
+    --logo-baseline-lift: clamp(2px, 0.22vw, 3px);
+  }
+
+  .header-container > .logo-container {
+    height: auto;
+  }
+
   .logo-container {
     z-index: 2;
-    min-width: 160px;
+    max-width: clamp(140px, 16vw, 220px);
+    align-self: flex-end;
+    margin-bottom: calc(var(--header-baseline-offset) + var(--logo-baseline-lift));
+    align-items: flex-end;
   }
 
   .header-actions {
     z-index: 2;
+    align-self: center;
+  }
+}
+
+/* ============================================
+   Desktop nav: compact tier — fires when container
+   is wide enough to fit all items without clipping
+   ============================================ */
+@container header (min-width: 920px) {
+  .mobile-menu-toggle {
+    display: none;
   }
 
-  .mobile-menu-toggle {
+  .navigation-close {
     display: none;
   }
 
@@ -485,7 +511,7 @@
     max-height: none;
     height: auto;
     overflow: visible;
-    width: auto;
+    width: 100%;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -496,59 +522,120 @@
     padding: 0;
     isolation: auto;
     z-index: auto !important;
-    align-items: center;
+    align-items: flex-end;
+    align-self: flex-end;
+    margin-bottom: var(--header-baseline-offset);
   }
 
   .nav-menu {
     background: transparent;
     flex-direction: row;
-    gap: var(--spacing-lg);
+    flex-wrap: nowrap;
+    gap: clamp(0.15rem, 0.45vw, 0.6rem);
     padding: 0;
-    align-items: center;
+    align-items: flex-end;
     height: auto;
     justify-content: center;
+    width: 100%;
+    min-width: 0;
   }
 
   .nav-menu li {
     border-bottom: none;
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .nav-link {
     display: inline-flex;
-    padding: 0 clamp(0.5rem, 1vw, 0.75rem);
+    padding: 0 clamp(0.2rem, 0.5vw, 0.45rem);
     width: auto;
     text-align: center;
-    font-size: var(--font-size-sm);
-    align-items: center;
+    font-size: clamp(0.75rem, 0.95vw, 0.875rem);
+    align-items: flex-end;
+    white-space: nowrap;
+    min-height: 0;
+    line-height: 1;
   }
 
   .nav-link::after {
     display: block;
+    bottom: -5px;
+  }
+
+  .nav-link::before {
+    display: none;
+  }
+
+  .nav-link:hover {
+    transform: translateY(-1px);
+    padding-left: clamp(0.2rem, 0.5vw, 0.45rem);
   }
 
   .download-btn {
-    display: inline-block;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+    padding-inline: clamp(0.625rem, 1.1vw, 1rem);
+    white-space: nowrap;
   }
 
   .header-actions {
-    gap: var(--spacing-md);
+    gap: clamp(0.35rem, 0.75vw, 0.875rem);
   }
 }
 
 /* ============================================
-   Desktop (1024px+)
+   Desktop nav: comfortable tier (container ≥ 1100px)
    ============================================ */
-@media (min-width: 1024px) {
+@container header (min-width: 1100px) {
+  .nav-menu {
+    gap: clamp(0.45rem, 1.1vw, 1.1rem);
+  }
+
+  .nav-link {
+    padding: 0 clamp(0.35rem, 0.75vw, 0.65rem);
+    font-size: clamp(0.8125rem, 1.05vw, 0.9375rem);
+  }
+
+  .nav-link:hover {
+    padding-left: clamp(0.35rem, 0.75vw, 0.65rem);
+  }
+
+  .download-btn {
+    font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+    padding-inline: clamp(0.875rem, 1.5vw, 1.25rem);
+  }
+
+  .header-actions {
+    gap: clamp(0.5rem, 1vw, 1rem);
+  }
+}
+
+/* ============================================
+   Desktop nav: spacious tier (container ≥ 1280px)
+   ============================================ */
+@container header (min-width: 1280px) {
   .header-container {
-    padding: 0 var(--container-padding);
+    gap: clamp(1.5rem, 3vw, 3rem);
   }
 
   .nav-menu {
-    gap: var(--spacing-xl);
+    gap: clamp(0.875rem, 1.6vw, 1.75rem);
   }
 
   .nav-link {
     font-size: var(--font-size-sm);
+    padding: 0 clamp(0.5rem, 1vw, 0.75rem);
+  }
+
+  .nav-link:hover {
+    padding-left: clamp(0.5rem, 1vw, 0.75rem);
+  }
+
+  .download-btn {
+    font-size: inherit;
+    padding-inline: clamp(0.875rem, 1.5vw, 1.25rem);
   }
 }
 
