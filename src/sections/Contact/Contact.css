@@ -178,11 +178,10 @@
   width: 100%;
   max-width: 520px;
   height: auto;
-  border-radius: 12px;
+  border-radius: 16px;
   margin-top: var(--spacing-lg);
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.6);
+  object-fit: contain;
+  background: transparent;
 }
 
 .contact-visual {
@@ -258,7 +257,7 @@
 
 .form-group label {
   color: #2c3e50;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
   margin-bottom: 6px;
   line-height: 1.4;
@@ -376,7 +375,7 @@
   cursor: pointer;
   font-weight: var(--font-weight-normal);
   margin-bottom: 0;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   line-height: 1.5;
   color: #2c3e50;
 }
@@ -414,7 +413,7 @@
 }
 
 .form-hint {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   color: rgba(44, 62, 80, 0.7);
 }
 
@@ -562,34 +561,6 @@
     width: 100%;
     max-width: 400px;
     margin: var(--spacing-md) auto 0;
-  }
-}
-
-/* Medium screens (768px - 1023px) */
-@media (max-width: 1023px) and (min-width: 768px) {
-  .info-content h1 {
-    font-size: var(--font-size-lg);
-  }
-  
-  .form-title {
-    font-size: var(--font-size-lg);
-  }
-  
-  .form-group label {
-    font-size: var(--font-size-xs);
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    font-size: var(--font-size-sm);
-  }
-  
-  .checkbox-label {
-    font-size: var(--font-size-xs);
-  }
-  
-  .submit-button {
-    font-size: var(--font-size-sm);
   }
 }
 

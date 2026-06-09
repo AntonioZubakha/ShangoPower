@@ -318,10 +318,29 @@
 /* Mobile: Улучшаем размер и читаемость текста */
 @media (max-width: 767px) {
   .slider-overlay p {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: none;
+  }
+
+  /* Light sections: cream overlay instead of dark */
+  .feature-section .slider-overlay,
+  .portfolio-section .slider-overlay {
+    background: linear-gradient(155deg, #ffffff, #faf6ef) !important;
+    border-top: 1px solid rgba(44, 62, 80, 0.08);
+    box-shadow: none;
+  }
+
+  .feature-section .slider-overlay h3,
+  .portfolio-section .slider-overlay h3 {
+    color: var(--text-dark);
+    border-left-color: #63e629;
+  }
+
+  .feature-section .slider-overlay p,
+  .portfolio-section .slider-overlay p {
+    color: rgba(44, 62, 80, 0.88);
   }
 }
 

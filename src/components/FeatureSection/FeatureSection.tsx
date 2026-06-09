@@ -34,7 +34,9 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
           dangerouslySetInnerHTML={{ __html: feature.content }}
         />
         <div className="feature-download">
-          <Button onClick={handleRequestConsultation}>Request a consultation</Button>
+          <Button onClick={handleRequestConsultation} className="btn-on-light">
+            Request a consultation
+          </Button>
         </div>
       </div>
       <div className="feature-slider">

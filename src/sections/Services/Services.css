@@ -55,7 +55,7 @@
 @media (max-width: 640px) {
   .services-title {
     width: 100%;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
   }
 }
 

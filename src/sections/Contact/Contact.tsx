@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FormData } from '../../types';
 import Button from '../../components/Button/Button';
 import './Contact.css';
-import contactImage from '../../assets/images/minimal2.png';
+import contactImage from '../../assets/images/minimal-future.png';
 import { observeElements } from '../../utils/scrollAnimations';
 import {
   submitContactForm,

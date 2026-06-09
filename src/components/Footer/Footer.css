@@ -120,7 +120,7 @@
 
 .rights {
   color: rgba(255, 255, 255, 0.5);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   margin: 0;
   line-height: var(--line-height-relaxed);
   letter-spacing: 0.02em;
