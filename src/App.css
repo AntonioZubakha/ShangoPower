@@ -13,6 +13,14 @@
   overflow-x: hidden;
 }
 
+@media (max-width: 767px) {
+  .hero-wrapper {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
 main {
   flex: 1;
   overflow-x: hidden;

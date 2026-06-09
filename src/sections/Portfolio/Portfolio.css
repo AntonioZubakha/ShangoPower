@@ -1,21 +1,38 @@
 .portfolio-section {
   position: relative;
   width: 100%;
-  background: #fafafa;
+  background:
+    radial-gradient(ellipse 70% 50% at 75% 20%, rgba(65, 147, 11, 0.1), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(99, 230, 41, 0.06), transparent 55%),
+    linear-gradient(180deg, #0a1018 0%, #0c131f 50%, #0f1928 100%);
   overflow: hidden;
   padding: var(--section-padding-y) var(--section-padding-x);
 }
 
 .portfolio-title {
   position: relative;
-  color: var(--text-dark);
+  color: #ffffff;
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: -0.02em;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
   margin: 0 auto var(--spacing-2xl);
   width: fit-content;
   text-align: center;
   line-height: var(--line-height-tight);
+  padding-bottom: var(--spacing-md);
+}
+
+.portfolio-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #63e629, #3c8f0c);
+  box-shadow: 0 0 16px rgba(99, 230, 41, 0.45);
 }
 
 .portfolio-content {
@@ -33,20 +50,27 @@
   position: relative;
   width: 100%;
   max-width: 1200px;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid var(--border-color);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 80px rgba(65, 147, 11, 0.12);
+  border: 1px solid rgba(99, 230, 41, 0.15);
 }
 
 .portfolio-slider {
   height: 100%;
 }
 
-/* Mobile: Слайдер портфолио должен показывать overlay */
+.portfolio-slider-wrapper .slider {
+  border-radius: 20px;
+  box-shadow: none;
+}
+
 @media (max-width: 767px) {
   .portfolio-slider {
-    height: auto; /* Автоматическая высота для показа overlay */
+    height: auto;
     min-height: auto;
     max-height: none;
   }
@@ -68,7 +92,10 @@
   .portfolio-slider-wrapper {
     height: auto;
     min-height: 300px;
-    border-radius: 8px;
+    border-radius: 16px;
+  }
+
+  .portfolio-slider-wrapper .slider {
+    border-radius: 16px;
   }
 }
-

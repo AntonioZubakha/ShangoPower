@@ -71,25 +71,36 @@
 .info-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: linear-gradient(135deg, rgba(65, 147, 11, 0.12), rgba(65, 147, 11, 0.08));
+  gap: 10px;
+  padding: 8px 16px 8px 12px;
+  background: rgba(65, 147, 11, 0.1);
   color: #1f3a1f;
-  border: 1px solid rgba(65, 147, 11, 0.2);
+  border: 1px solid rgba(99, 230, 41, 0.25);
   border-radius: 999px;
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.info-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #63e629;
+  box-shadow: 0 0 0 4px rgba(99, 230, 41, 0.18);
+  flex-shrink: 0;
 }
 
 .info-content h1 {
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   margin: 0;
   padding: 0;
   color: #2c3e50;
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -179,11 +190,13 @@
   width: 100%;
   max-width: 560px;
   padding: var(--spacing-xs);
-  border-radius: 16px;
+  border-radius: 20px;
   background: radial-gradient(circle at 30% 20%, rgba(99, 230, 41, 0.08), transparent 55%),
     radial-gradient(circle at 80% 60%, rgba(60, 143, 12, 0.08), transparent 60%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(99, 230, 41, 0.1);
   overflow: hidden;
 }
 
@@ -214,12 +227,26 @@
 }
 
 .form-title {
+  position: relative;
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   color: #2c3e50;
   margin: 0 0 var(--spacing-lg) 0;
+  padding-bottom: var(--spacing-sm);
   text-align: left;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #63e629, #3c8f0c);
+  box-shadow: 0 0 12px rgba(99, 230, 41, 0.35);
 }
 
 .form-group {
@@ -524,6 +551,11 @@
 
   .form-title {
     text-align: center;
+  }
+
+  .form-title::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .contact-image {

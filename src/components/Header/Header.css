@@ -1,24 +1,27 @@
 .header {
-  position: relative;
-  background: #1a1a2e;
-  color: rgba(255, 255, 255, 0.95);
-  padding: 0;
   position: sticky;
   top: 0;
+  background: rgba(6, 10, 16, 0.92);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 0;
   z-index: 10000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
   contain: layout style;
   flex-shrink: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(99, 230, 41, 0.12);
   overflow: visible;
   transition: all 0.3s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .header.scrolled {
-  background: rgba(26, 26, 46, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  background: rgba(6, 10, 16, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(99, 230, 41, 0.15);
 }
 
 .header.scrolled .header-container {
@@ -155,7 +158,7 @@
 
 .nav-link:hover {
   color: rgba(255, 255, 255, 1);
-  background: rgba(255, 255, 255, 0.15);
+  background: transparent;
   transform: translateY(-1px);
 }
 
@@ -185,7 +188,8 @@
 }
 
 .nav-link.active {
-  color: rgba(255, 255, 255, 1);
+  color: #ffffff;
+  background: transparent;
 }
 
 .header-actions {
@@ -204,7 +208,9 @@
   white-space: nowrap;
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.01em;
-  box-shadow: 0 4px 12px rgba(65, 147, 11, 0.3);
+  box-shadow:
+    0 8px 24px rgba(65, 147, 11, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -473,6 +479,8 @@
   .navigation {
     position: static;
     background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     box-shadow: none;
     max-height: none;
     height: auto;
@@ -484,12 +492,15 @@
     transform: none;
     display: flex !important;
     border-radius: 0;
+    border: none;
     padding: 0;
-    z-index: auto !important; /* вернуть поверхностный порядок, чтобы не перекрывать логотип/кнопку */
+    isolation: auto;
+    z-index: auto !important;
     align-items: center;
   }
 
   .nav-menu {
+    background: transparent;
     flex-direction: row;
     gap: var(--spacing-lg);
     padding: 0;

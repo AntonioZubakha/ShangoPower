@@ -212,7 +212,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background: #f8f9fa;
+  background: #eef2f6;
   color: var(--text-dark);
   overflow-x: hidden;
   scroll-behavior: smooth;
