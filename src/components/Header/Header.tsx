@@ -6,6 +6,7 @@ import logo from '../../assets/images/logoNB.png';
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   const menuItems = [
     'About Us',
@@ -18,10 +19,10 @@ const Header: React.FC = () => {
     'Contact',
   ];
 
+  const toSectionId = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
+
   const scrollToSection = (sectionName: string) => {
-    const element = document.getElementById(
-      sectionName.toLowerCase().replace(' ', '-')
-    );
+    const element = document.getElementById(toSectionId(sectionName));
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -44,10 +45,32 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 50);
+
+      // Determine active section
+      const sections = menuItems
+        .map((item) => document.getElementById(toSectionId(item)))
+        .filter(Boolean) as HTMLElement[];
+
+      let current = '';
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          current = section.id;
+          break;
+        }
+      }
+
+      if (!current && scrollPosition < 100) {
+        current = 'about-us';
+      }
+
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -67,16 +90,20 @@ const Header: React.FC = () => {
             <span></span>
           </button>
           <ul className="nav-menu">
-            {menuItems.map((item) => (
-              <li key={item}>
-                <button
-                  onClick={() => scrollToSection(item)}
-                  className="nav-link"
-                >
-                  {item}
-                </button>
-              </li>
-            ))}
+            {menuItems.map((item) => {
+              const sectionId = toSectionId(item);
+              const isActive = activeSection === sectionId;
+              return (
+                <li key={item}>
+                  <button
+                    onClick={() => scrollToSection(item)}
+                    className={`nav-link ${isActive ? 'active' : ''}`}
+                  >
+                    {item}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 

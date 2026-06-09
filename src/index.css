@@ -115,34 +115,30 @@
   --overlay-light: rgba(44, 62, 80, 0.7);
   
   /* ============================================
-     Spacing Scale (8px base)
+     Spacing Scale (8px base) - Improved
      ============================================ */
-  --spacing-xs: 0.25rem;    /* 4px */
-  --spacing-sm: 0.5rem;     /* 8px */
-  --spacing-md: 1rem;       /* 16px */
-  --spacing-lg: 1.5rem;     /* 24px */
-  --spacing-xl: 2rem;       /* 32px */
-  --spacing-2xl: 3rem;      /* 48px */
-  --spacing-3xl: 4.5rem;    /* 72px */
-  --spacing-4xl: 6.5rem;    /* 104px */
+  --spacing-xs: 0.5rem;     /* 8px */
+  --spacing-sm: 1rem;       /* 16px */
+  --spacing-md: 1.5rem;     /* 24px */
+  --spacing-lg: 2rem;       /* 32px */
+  --spacing-xl: 3rem;       /* 48px */
+  --spacing-2xl: 4rem;      /* 64px */
+  --spacing-3xl: 6rem;      /* 96px */
+  --spacing-4xl: 8rem;      /* 128px */
+  
+  /* Section spacing */
+  --section-padding-y: clamp(4rem, 10vw, 8rem);
+  --section-padding-x: clamp(1.5rem, 5vw, 4rem);
   
   /* ============================================
-     Typography Scale - Unified Sizes
+     Typography Scale - 6 Sizes Only
      ============================================ */
-  --font-size-small: clamp(1.1rem, 1.8vw, 1.3rem);      /* 18-24px - мелкий текст */
-  --font-size-base: clamp(1.2rem, 2.25vw, 1.5rem);     /* 21-27px - основной текст */
-  --font-size-large: clamp(1.7rem, 3.75vw, 2.5rem);       /* 30-48px - подзаголовки */
-  --font-size-xlarge: clamp(2rem, 5.25vw, 3rem);         /* 36-84px - заголовки */
-  
-  /* Additional sizes for specific use cases */
-  --font-size-title-medium: clamp(1.875rem, 3.75vw, 2.625rem);  /* 30-42px - средние заголовки */
-  --font-size-title-large: clamp(2rem, 7.5vw, 3.5rem);        /* 48-84px - большие заголовки */
-  --font-size-input: clamp(1.3125rem, 2.25vw, 1.5rem);         /* 21-24px - поля ввода */
-  --font-size-label: clamp(1.125rem, 1.95vw, 1.35rem);         /* 18-21.6px - метки */
-  --font-size-mobile: clamp(1.2rem, 3vw, 1.425rem);            /* 19.2-22.8px - мобильный текст */
-  --font-size-mobile-small: clamp(1.05rem, 2.7vw, 1.275rem);   /* 16.8-20.4px - мелкий мобильный */
-  --font-size-mobile-title: clamp(1.5rem, 4.5vw, 2.25rem);     /* 24-36px - мобильные заголовки */
-  --font-size-required: 1.35em;                                 /* Относительный размер для required */
+  --font-size-xs: clamp(0.875rem, 1.5vw, 1rem);        /* 14-16px - мелкий текст, метки */
+  --font-size-sm: clamp(1rem, 1.8vw, 1.125rem);        /* 16-18px - небольшой текст, поля ввода */
+  --font-size-base: clamp(1.125rem, 2vw, 1.25rem);     /* 18-20px - основной текст */
+  --font-size-lg: clamp(1.5rem, 3vw, 2rem);            /* 24-32px - подзаголовки */
+  --font-size-xl: clamp(2rem, 4vw, 2.75rem);           /* 32-44px - заголовки секций */
+  --font-size-2xl: clamp(2.5rem, 5vw, 3.5rem);        /* 40-56px - большие заголовки */
   
   /* ============================================
      Font Weight - 3 Unified Weights Only
@@ -212,13 +208,12 @@ body {
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
+  line-height: var(--line-height-relaxed);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background: radial-gradient(circle at 20% 20%, #f7f9fb 0%, #eef2f7 45%, #e7ecf3 100%);
-  background-attachment: fixed;
-  color: #2c3e50;
+  background: #f8f9fa;
+  color: var(--text-dark);
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -244,16 +239,23 @@ video {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  font-size: var(--font-size-required);
+  font-size: var(--font-size-sm);
 }
 
 /* Headings: refined tech look */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   font-weight: var(--font-weight-semibold);
   color: var(--text-dark);
+  line-height: var(--line-height-tight);
+  margin: 0;
 }
+
+h1 { font-size: var(--font-size-2xl); }
+h2 { font-size: var(--font-size-xl); }
+h3 { font-size: var(--font-size-lg); }
+h4 { font-size: var(--font-size-base); }
 
 /* ============================================
    Root Container

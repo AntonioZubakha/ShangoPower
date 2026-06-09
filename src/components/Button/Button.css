@@ -261,7 +261,7 @@
 
 /* Sizes */
 .btn-small {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-xs);
   padding: clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm)) clamp(var(--spacing-sm), 2vw, var(--spacing-md));
 }
 

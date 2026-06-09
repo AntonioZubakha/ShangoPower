@@ -4,6 +4,11 @@ import Button from '../../components/Button/Button';
 import './Contact.css';
 import contactImage from '../../assets/images/minimal2.png';
 import { observeElements } from '../../utils/scrollAnimations';
+import {
+  submitContactForm,
+  FormNotConfiguredError,
+  FormSubmitError,
+} from '../../utils/submitContactForm';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -110,8 +115,7 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await submitContactForm(formData);
 
       // Reset form
       setFormData({
@@ -129,6 +133,19 @@ const Contact: React.FC = () => {
       }, 5000);
     } catch (error) {
       console.error('Error submitting form:', error);
+
+      if (error instanceof FormNotConfiguredError) {
+        alert(
+          'Form delivery is not configured yet. Please email us at dk@shango-power.com.'
+        );
+        return;
+      }
+
+      if (error instanceof FormSubmitError) {
+        alert('There was an error submitting your form. Please try again.');
+        return;
+      }
+
       alert('There was an error submitting your form. Please try again.');
     } finally {
       setIsSubmitting(false);

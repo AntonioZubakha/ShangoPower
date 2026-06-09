@@ -18,7 +18,7 @@
 
 .error-boundary-content h1 {
   color: var(--primary-color);
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-lg);
   margin-bottom: 1rem;
 }
 

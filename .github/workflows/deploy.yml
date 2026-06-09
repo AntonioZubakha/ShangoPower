@@ -26,6 +26,7 @@ jobs:
       run: npm run build
       env:
         GENERATE_SOURCEMAP: false
+        REACT_APP_FORM_ENDPOINT: ${{ secrets.REACT_APP_FORM_ENDPOINT }}
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3

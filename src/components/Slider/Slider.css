@@ -113,6 +113,34 @@
     display: block;
     min-height: auto;
   }
+  
+  /* Улучшенный overlay для десктопа - более темный для лучшей контрастности */
+  .slider-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.85) 25%,
+      rgba(0, 0, 0, 0.75) 50%,
+      rgba(0, 0, 0, 0.6) 75%,
+      rgba(0, 0, 0, 0.4) 90%,
+      transparent 100%
+    );
+    padding: clamp(var(--spacing-xl), 5vw, var(--spacing-3xl)) clamp(var(--spacing-lg), 4vw, var(--spacing-2xl));
+    padding-bottom: max(clamp(var(--spacing-xl), 5vw, var(--spacing-3xl)), env(safe-area-inset-bottom, 0px));
+  }
+  
+  .slider-overlay h3 {
+    text-shadow:
+      0 3px 12px rgba(0, 0, 0, 0.9),
+      0 6px 24px rgba(0, 0, 0, 0.7),
+      0 0 32px rgba(0, 0, 0, 0.5);
+  }
+  
+  .slider-overlay p {
+    text-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.85),
+      0 1px 4px rgba(0, 0, 0, 0.7);
+  }
 }
 
 .slider-media {
@@ -157,19 +185,26 @@
   right: 0;
   background: linear-gradient(
     to top,
-    var(--black-rgba-75) 0%,
-    var(--black-rgba-60) 50%,
-    var(--black-rgba-35) 78%,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.75) 30%,
+    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.4) 85%,
     transparent 100%
   );
   color: #ffffff;
-  padding: clamp(var(--spacing-lg), 4vw, var(--spacing-2xl));
+  padding: clamp(var(--spacing-lg), 4vw, var(--spacing-2xl)) clamp(var(--spacing-md), 3vw, var(--spacing-xl));
+  padding-bottom: max(clamp(var(--spacing-lg), 4vw, var(--spacing-2xl)), env(safe-area-inset-bottom, 0px));
   box-sizing: border-box;
   text-align: left;
   z-index: var(--z-base);
+  min-height: fit-content;
+  max-height: 60%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile: Перемещаем overlay под квадратное изображение - ОБЯЗАТЕЛЬНО ВИДЕН, фиксированная высота */
+/* Mobile: Перемещаем overlay под квадратное изображение - ОБЯЗАТЕЛЬНО ВИДЕН, адаптивная высота */
 @media (max-width: 767px) {
   .slider-overlay {
     position: static !important;
@@ -182,6 +217,7 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: clamp(var(--spacing-md), 3vw, var(--spacing-lg)) clamp(var(--spacing-md), 4vw, var(--spacing-xl));
+    padding-bottom: max(clamp(var(--spacing-md), 3vw, var(--spacing-lg)), env(safe-area-inset-bottom, 0px));
     margin-top: 0;
     border-radius: 0 0 12px 12px;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
@@ -194,54 +230,67 @@
     opacity: 1 !important;
     z-index: 10;
     width: 100%;
-    min-height: clamp(140px, 36vw, 220px);
-    height: clamp(170px, 45vw, 260px);
-    max-height: clamp(220px, 60vw, 340px) !important;
-    overflow-y: auto !important;
+    min-height: fit-content;
+    height: auto;
+    max-height: none !important;
+    overflow-y: visible !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
   }
   
   .slider-overlay h3 {
     flex-shrink: 0;
-    margin-bottom: clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm));
+    margin: 0 0 clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm)) 0;
+    padding: 0;
     overflow: visible;
     text-overflow: initial;
     white-space: normal;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .slider-overlay p {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     overflow: visible;
     margin: 0;
+    padding: 0;
     min-height: 0;
     display: block !important;
-    white-space: normal;
+    white-space: pre-line;
     word-break: break-word;
+    overflow-wrap: break-word;
     visibility: visible !important;
     opacity: 1 !important;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
 .slider-overlay h3 {
-  font-size: var(--font-size-large);
-  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--spacing-sm) 0;
+  padding: 0;
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: -0.01em;
   color: #ffffff;
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.55),
-    0 0 24px rgba(0, 0, 0, 0.35);
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Mobile: Уменьшаем размер заголовка */
 @media (max-width: 767px) {
   .slider-overlay h3 {
-    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    font-size: var(--font-size-base);
     margin-bottom: clamp(var(--spacing-xs), 1.5vw, var(--spacing-sm));
     text-shadow: none;
   }
@@ -251,15 +300,23 @@
   font-size: var(--font-size-base);
   line-height: var(--line-height-relaxed);
   margin: 0;
-  color: rgba(255, 255, 255, 0.96);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  padding: 0;
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.7),
+    0 1px 3px rgba(0, 0, 0, 0.5);
   white-space: pre-line;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Mobile: Улучшаем размер и читаемость текста */
 @media (max-width: 767px) {
   .slider-overlay p {
-    font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+    font-size: var(--font-size-sm);
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: none;

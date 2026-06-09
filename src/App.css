@@ -23,7 +23,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Section spacing */
+/* Section spacing — padding is defined per-section to avoid doubling */
 section {
   scroll-margin-top: clamp(80px, 12vw, 110px);
   width: 100%;
